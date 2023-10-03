@@ -1,0 +1,19 @@
+class Solution {
+    public int numIdenticalPairs(int[] nums) {
+        int max=Integer.MIN_VALUE;
+        for(int i:nums){
+            max=max>i?max:i;
+        }
+        int []count=new int[max+1];
+        int total_count=0;
+
+        for(int i=0;i<nums.length;i++){
+            count[nums[i]]++;
+        }
+
+        for(int it:count){
+            total_count+=(it*(it-1))/2;
+        }
+        return total_count;
+    }
+}
