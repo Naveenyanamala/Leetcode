@@ -1,0 +1,16 @@
+class Solution {
+    public List<Integer> majorityElement(int[] nums) {
+        HashMap<Integer,Integer> map=new HashMap<>();
+        List<Integer> list=new ArrayList<>(); 
+        for(int i=0;i<nums.length;i++){
+            int value=map.getOrDefault(nums[i],0);
+            map.put(nums[i],value+1);
+        }
+        for(Map.Entry<Integer,Integer> it: map.entrySet()){
+            if(it.getValue()>(nums.length/3)){
+                list.add(it.getKey());
+            }
+        }
+        return list;
+    }
+}
