@@ -1,0 +1,15 @@
+lass Solution {
+    public int lengthOfLastWord(String s) {
+        s=s.trim();
+        StringBuilder res=new StringBuilder();
+        for(int i=s.length()-1;i>=0;i--){
+            if(s.charAt(i)!=' '){
+                res.append(s.charAt(i));
+            }
+            else{
+                break;
+            }
+        }
+        return res.toString().length();
+    }
+}
