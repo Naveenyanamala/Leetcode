@@ -1,0 +1,33 @@
+class Solution {
+    public String generatestring(String number,int ind){
+         StringBuilder res=new StringBuilder();
+        
+        if(ind!=0){
+            res.append(number.substring(0,ind));
+        }
+        res.append(number.substring(ind+1,number.length()));
+        return res.toString();
+    }
+    public String removeDigit(String number, char digit) {
+        ArrayList<Integer> list=new ArrayList<>();
+       
+        for(int i=0;i<number.length();i++){
+            if(number.charAt(i)==digit){
+                list.add(i);
+            }
+        }
+        // int ind=-1;
+        // ind=number.indexOf(digit);
+        String s1=generatestring(number,list.get(0));
+        for(int i=1;i<list.size();i++){
+            String s2=generatestring(number,list.get(i));
+            boolean valid=s2.compareTo(s1)>0?true:false;
+            if(valid){
+                s1=s2;
+            }
+        }
+        
+        
+        return s1;
+    }
+}
