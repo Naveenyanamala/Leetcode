@@ -1,0 +1,16 @@
+class Solution {
+    public int minimumCardPickup(int[] cards) {
+        int index=0,sum=Integer.MAX_VALUE;
+        HashMap<Integer,Integer> map=new HashMap<>();
+        for(int i=0;i<cards.length;i++){
+            if(map.containsKey(cards[i])){
+                sum=sum>i-map.get(cards[i])+1?i-map.get(cards[i])+1:sum;
+                index=i;
+                map.put(cards[i],i);
+            }else{
+                map.put(cards[i],i);
+            }
+        }
+        return sum=(index!=0)?sum:(-1);
+    }
+}
